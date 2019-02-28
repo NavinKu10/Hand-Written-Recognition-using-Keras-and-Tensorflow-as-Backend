@@ -1,5 +1,4 @@
 #importing necessary libraries
-
 import tensorflow as tf
 import tensorflow.keras as keras
 
@@ -9,7 +8,7 @@ mnist = tf.keras.datasets.mnist
 #dividing the dataset into training and test data
 (x_train,y_train), (x_test,y_test) = mnist.load_data()
 
-#This line shoes the first image in the training dataset
+#This line shows the first image from the training dataset
 import matplotlib.pyplot as plt
 plt.imshow(x_train[0])
 plt.show()
@@ -35,9 +34,9 @@ classifier.add(tf.keras.layers.MaxPooling2D(pool_size=(2, 2)))
 classifier.add(tf.keras.layers.Flatten())
 
 #Addign 3 dense or hidden layers
+classifier.add(tf.keras.layers.Dense(64, activation=tf.nn.relu))
 classifier.add(tf.keras.layers.Dense(128, activation=tf.nn.relu))
-classifier.add(tf.keras.layers.Dense(128, activation=tf.nn.relu))
-classifier.add(tf.keras.layers.Dense(128, activation=tf.nn.relu))
+classifier.add(tf.keras.layers.Dense(64, activation=tf.nn.relu))
 
 #Adding the output layer
 classifier.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))
